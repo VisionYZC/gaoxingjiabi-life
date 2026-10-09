@@ -1206,6 +1206,9 @@ html.js .reveal.is-in { opacity: 1; transform: none; filter: blur(0) saturate(10
   .scene__row { grid-template-columns: 1fr; gap: 6px; }
   .formula { grid-template-columns: 1fr; text-align: center; }
   .formula__op { transform: rotate(90deg); }
+  /* 移动端性能：大半径跨屏模糊最容易掉帧，光斑砍到两个、半径调小，观感基本不变 */
+  html::after, .motes::after { display: none; }
+  html::before, .motes::before { filter: blur(52px); }
 }
 @media (max-width: 620px) {
   body { font-size: 16px; }
